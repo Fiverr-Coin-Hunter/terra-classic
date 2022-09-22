@@ -79,18 +79,9 @@ const NextOrApproveButton = ({
   return (
     <Button
       onClick={onClickSendNextButton}
-      disabled={
-        !ableButton ||
-        bridgeUsed === BridgeType.ibc ||
-        (bridgeUsed === BridgeType.shuttle &&
-          fromBlockChain === BlockChainType.terra)
-      }
+      disabled={!ableButton || bridgeUsed === BridgeType.ibc}
     >
-      {bridgeUsed === BridgeType.ibc ||
-      (bridgeUsed === BridgeType.shuttle &&
-        fromBlockChain === BlockChainType.terra)
-        ? 'Not available'
-        : 'Next'}
+      {bridgeUsed === BridgeType.ibc ? 'IBC suspended' : 'Next'}
     </Button>
   )
 }
